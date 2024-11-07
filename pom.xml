@@ -15,11 +15,6 @@
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.release>17</maven.compiler.release>
-  </properties>
-
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -88,7 +83,29 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.6.1</version>
         </plugin>
+
+        <!-- added: mvn clean site site:stage scm-publish:publish-scm -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-scm-publish-plugin</artifactId>
+          <version>3.3.0</version>
+          <configuration>
+            <scmBranch>gh-pages</scmBranch>
+          </configuration>
+        </plugin>
+        <!-- added -->
+
       </plugins>
     </pluginManagement>
   </build>
+
+  <!-- added -->
+  <distributionManagement>
+    <site>
+      <id>github</id>
+      <url>scm:git:git@github.com:hiwakaba/javadeploytest.git</url>
+    </site>
+  </distributionManagement>
+  <!-- added -->
+
 </project>
