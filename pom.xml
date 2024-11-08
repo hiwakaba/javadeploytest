@@ -83,7 +83,6 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.6.1</version>
         </plugin>
-
         <!-- added: mvn clean site site:stage scm-publish:publish-scm -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -98,7 +97,6 @@
       </plugins>
     </pluginManagement>
   </build>
-
   <!-- added -->
   <distributionManagement>
     <site>
@@ -108,4 +106,30 @@
   </distributionManagement>
   <!-- added -->
 
+  <!-- added -->
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.11.1</version>
+        <reportSets>
+          <reportSet>
+            <id>aggregate</id>
+            <inherited>false</inherited>
+            <reports>
+              <report>aggregate</report>
+            </reports>
+          </reportSet>
+          <reportSet>
+            <id>default</id>
+            <reports>
+              <report>javadoc</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
+  <!-- added -->
 </project>
